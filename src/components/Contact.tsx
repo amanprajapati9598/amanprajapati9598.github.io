@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Check, Copy, Mail, Send } from 'lucide-react';
+import { Check, Copy, Mail, Phone, Send } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import { portfolioContent } from '../data/content';
 
@@ -150,6 +150,19 @@ export function Contact() {
                 <LinkedinIcon className="w-4 h-4" />
                 <span>LinkedIn</span>
               </a>
+            )}
+
+            {personal.phone && (
+              <>
+                <span className="text-slate-300 dark:text-slate-700">•</span>
+                <a
+                  href={`tel:${personal.phone.replace(/\s+/g, '')}`}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-sky-400 transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>{personal.phone}</span>
+                </a>
+              </>
             )}
 
             <span className="text-slate-300 dark:text-slate-700">•</span>

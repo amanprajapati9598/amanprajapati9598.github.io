@@ -52,6 +52,7 @@ export interface ContentData {
     location: string;
     languagesSpoken: string[];
     email: string;
+    phone?: string;
     githubUrl: string;
     linkedinUrl: string;
     resumePath: string;
@@ -91,6 +92,7 @@ export const portfolioContent: ContentData = {
     location: "Mumbai, Maharashtra",
     languagesSpoken: ["English", "Hindi"],
     email: "amanprajapati9598@gmail.com",
+    phone: "+91 8957304353",
     githubUrl: "https://github.com/amanprajapati9598",
     linkedinUrl: "https://www.linkedin.com/in/aman-prajapati-43ab56390/",
     resumePath: "./resume.pdf",
