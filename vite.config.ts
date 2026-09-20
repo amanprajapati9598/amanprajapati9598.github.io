@@ -18,7 +18,6 @@ export default defineConfig({
       },
     },
   ],
-  // GitHub Pages base: Set to '/<REPO-NAME>/' for production deployment
-  // Replace <REPO-NAME> with your actual GitHub repository name
-  base: process.env.NODE_ENV === 'production' ? '/<REPO-NAME>/' : '/',
+  // Relative base makes the build work automatically on GitHub Pages (repo subpath or user root)
+  base: './',
 });
