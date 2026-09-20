@@ -30,9 +30,20 @@ export function About() {
                 <span>Professional Summary</span>
               </div>
               
-              <p className="text-base text-slate-700 dark:text-slate-300 leading-relaxed font-sans mb-7">
-                {personal.intro}
-              </p>
+              <div className="flex flex-col sm:flex-row gap-6 items-start mb-7">
+                <div className="w-28 sm:w-36 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-md border-2 border-white dark:border-slate-700 ring-2 ring-slate-200/80 dark:ring-slate-800 shrink-0 bg-slate-100 dark:bg-slate-800 self-center sm:self-start">
+                  <img
+                    src={personal.aboutPhotoPath}
+                    alt={personal.name}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+                <div className="flex-1">
+                  <p className="text-base text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
+                    {personal.intro}
+                  </p>
+                </div>
+              </div>
 
               {/* Quick Details Chips */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-5 border-t border-slate-100 dark:border-slate-800">

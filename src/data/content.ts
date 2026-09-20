@@ -56,6 +56,7 @@ export interface ContentData {
     linkedinUrl: string;
     resumePath: string;
     photoPath: string;
+    aboutPhotoPath: string;
     initials: string;
     statusBadge: string;
     intro: string;
@@ -92,8 +93,9 @@ export const portfolioContent: ContentData = {
     email: "amanprajapati9598@gmail.com",
     githubUrl: "<GITHUB-URL>",
     linkedinUrl: "<LINKEDIN-URL>",
-    resumePath: "/resume.pdf",
-    photoPath: "/photo.jpg",
+    resumePath: "./resume.pdf",
+    photoPath: "./photo.jpg",
+    aboutPhotoPath: "./about-photo.jpg",
     initials: "AP",
     statusBadge: "Available for full-time roles",
     intro: "BCA graduate with hands-on experience building full stack applications using JavaScript, TypeScript, Python, React and Node.js. Completed a full stack internship building live production websites and independently built an AI-powered mobile app. Looking for a first role as Software Developer, Full Stack Developer or Frontend Developer.",

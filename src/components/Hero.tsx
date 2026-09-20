@@ -148,37 +148,42 @@ export function Hero() {
               {/* Photo or Initials Body */}
               <div className="p-7 flex flex-col items-center justify-center text-center relative">
                 
-                {/* Image element if photo exists */}
-                {!imageError && (
-                  <div className="relative w-28 h-28 rounded-2xl overflow-hidden mb-4 shadow-md border-2 border-white dark:border-slate-700">
-                    <img
-                      src={personal.photoPath}
-                      alt={personal.name}
-                      className={`w-full h-full object-cover transition-opacity duration-300 ${
-                        imageLoaded ? 'opacity-100' : 'opacity-0 absolute'
-                      }`}
-                      onLoad={() => setImageLoaded(true)}
-                      onError={() => setImageError(true)}
-                    />
-                  </div>
-                )}
-
-                {/* Stylized Monogram Badge when no photo exists */}
-                {(imageError || !imageLoaded) && (
-                  <div className="relative mb-4">
-                    <div className="w-28 h-28 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 dark:from-sky-500 dark:to-blue-600 p-[3px] shadow-lg shadow-blue-500/20">
+                {/* Photo or Initials */}
+                <div className="relative mb-4">
+                  {!imageError ? (
+                    <div className="w-32 h-32 rounded-2xl overflow-hidden shadow-lg border-2 border-white dark:border-slate-700 ring-4 ring-blue-500/10 dark:ring-sky-400/20 bg-slate-100 dark:bg-slate-800 relative">
+                      <img
+                        src={personal.photoPath}
+                        alt={personal.name}
+                        className={`w-full h-full object-cover object-top transition-opacity duration-300 ${
+                          imageLoaded ? 'opacity-100' : 'opacity-0'
+                        }`}
+                        onLoad={() => setImageLoaded(true)}
+                        onError={() => setImageError(true)}
+                      />
+                      {!imageLoaded && (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <span className="text-3xl font-black text-blue-600 dark:text-sky-400 font-heading">
+                            {personal.initials}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="w-32 h-32 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 dark:from-sky-500 dark:to-blue-600 p-[3px] shadow-lg shadow-blue-500/20">
                       <div className="w-full h-full bg-white dark:bg-[#0B0F17] rounded-[13px] flex items-center justify-center">
                         <span className="text-4xl font-black tracking-tight text-blue-600 dark:text-sky-400 font-heading">
                           {personal.initials}
                         </span>
                       </div>
                     </div>
-                    {/* Glowing active badge */}
-                    <div className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-emerald-500 border-2 border-white dark:border-slate-900 flex items-center justify-center text-white shadow-xs">
-                      <Sparkles className="w-3.5 h-3.5" />
-                    </div>
+                  )}
+
+                  {/* Glowing active badge */}
+                  <div className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-emerald-500 border-2 border-white dark:border-slate-900 flex items-center justify-center text-white shadow-xs">
+                    <Sparkles className="w-3.5 h-3.5" />
                   </div>
-                )}
+                </div>
 
                 {/* Identity info */}
                 <h2 className="text-lg font-bold text-slate-950 dark:text-white font-heading">
