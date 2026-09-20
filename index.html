@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="dark scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
@@ -29,22 +29,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet" />
 
-    <!-- Anti-FOUC Theme Script -->
+    <!-- Permanent Dark Mode Script -->
     <script>
-      (function() {
-        try {
-          var stored = localStorage.getItem('theme');
-          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          if (stored === 'dark' || (!stored && prefersDark)) {
-            document.documentElement.classList.add('dark');
-          } else {
-            document.documentElement.classList.remove('dark');
-          }
-        } catch (e) {}
-      })();
+      document.documentElement.classList.add('dark');
     </script>
   </head>
-  <body class="bg-[#F8FAFC] text-[#0F172A] dark:bg-[#0B0F17] dark:text-[#F8FAFC] font-sans antialiased selection:bg-blue-500/20 selection:text-blue-600 dark:selection:text-sky-300">
+  <body class="bg-[#0B0F17] text-[#F8FAFC] font-sans antialiased selection:bg-sky-500/20 selection:text-sky-300">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

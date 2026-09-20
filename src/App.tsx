@@ -1,4 +1,3 @@
-import { useTheme } from './hooks/useTheme';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { ClientStrip } from './components/ClientStrip';
@@ -8,38 +7,43 @@ import { About } from './components/About';
 import { Skills } from './components/Skills';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { CodeRain } from './components/CodeRain';
 
 export function App() {
-  const { theme, toggleTheme } = useTheme();
-
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8FAFC] dark:bg-[#0B0F17] text-slate-900 dark:text-slate-100 selection:bg-blue-500/20 selection:text-blue-600 dark:selection:text-sky-300">
-      {/* 1. Header */}
-      <Header theme={theme} toggleTheme={toggleTheme} />
+    <div className="relative min-h-screen flex flex-col bg-[#0B0F17] text-slate-100 selection:bg-sky-500/20 selection:text-sky-300">
+      {/* Dynamic Digital Matrix Code Rain Animation */}
+      <CodeRain />
 
-      <main className="flex-grow">
-        {/* 2. Hero */}
-        <Hero />
+      {/* Main Content Sections on top of code rain */}
+      <div className="relative z-10 flex flex-col min-h-screen">
+        {/* 1. Header */}
+        <Header />
 
-        {/* 3. Live Client Sites Strip */}
-        <ClientStrip />
+        <main className="flex-grow">
+          {/* 2. Hero */}
+          <Hero />
 
-        {/* 4. Experience & Projects */}
-        <Projects />
-        <Experience />
+          {/* 3. Live Client Sites Strip */}
+          <ClientStrip />
 
-        {/* 5. About (Education + Certification) */}
-        <About />
+          {/* 4. Experience & Projects */}
+          <Projects />
+          <Experience />
 
-        {/* 6. Skills (Grouped by Category) */}
-        <Skills />
+          {/* 5. About (Education + Certification) */}
+          <About />
 
-        {/* 7. Contact (Email CTA + Copy Button) */}
-        <Contact />
-      </main>
+          {/* 6. Skills (Grouped by Category) */}
+          <Skills />
 
-      {/* 8. Footer */}
-      <Footer />
+          {/* 7. Contact (Email CTA + Copy Button) */}
+          <Contact />
+        </main>
+
+        {/* 8. Footer */}
+        <Footer />
+      </div>
     </div>
   );
 }
