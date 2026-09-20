@@ -95,7 +95,7 @@ export const portfolioContent: ContentData = {
     phone: "+91 8957304353",
     githubUrl: "https://github.com/amanprajapati9598",
     linkedinUrl: "https://www.linkedin.com/in/aman-prajapati-43ab56390/",
-    resumePath: "./resume.pdf",
+    resumePath: "./Aman_Prajapati_Resume.pdf",
     photoPath: "./photo.jpg",
     aboutPhotoPath: "./about-photo.jpg",
     initials: "AP",

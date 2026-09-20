@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Sun, Moon, Menu, X, ArrowUpRight } from 'lucide-react';
 import { portfolioContent } from '../data/content';
 import type { Theme } from '../hooks/useTheme';
+import { handleResumeDownload } from '../utils/downloadResume';
 
 interface HeaderProps {
   theme: Theme;
@@ -55,7 +56,13 @@ export function Header({ theme, toggleTheme }: HeaderProps) {
           {/* Direct Resume Link in Header */}
           <a
             href={portfolioContent.personal.resumePath}
+            target="_blank"
+            rel="noopener noreferrer"
             download="Aman_Prajapati_Resume.pdf"
+            onClick={(e) => {
+              e.preventDefault();
+              handleResumeDownload(portfolioContent.personal.resumePath);
+            }}
             className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-300 hover:border-blue-500 dark:border-slate-700 dark:hover:border-sky-400 bg-white hover:bg-slate-50 dark:bg-slate-900/60 text-slate-800 hover:text-blue-600 dark:text-slate-200 dark:hover:text-sky-400 shadow-2xs transition-all"
           >
             <span>Resume</span>
@@ -121,8 +128,14 @@ export function Header({ theme, toggleTheme }: HeaderProps) {
             <div className="pt-2">
               <a
                 href={portfolioContent.personal.resumePath}
+                target="_blank"
+                rel="noopener noreferrer"
                 download="Aman_Prajapati_Resume.pdf"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMobileMenuOpen(false);
+                  handleResumeDownload(portfolioContent.personal.resumePath);
+                }}
                 className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-blue-600 dark:bg-sky-400 text-white dark:text-slate-950 font-semibold text-sm shadow-md transition-opacity"
               >
                 <span>Download Resume</span>

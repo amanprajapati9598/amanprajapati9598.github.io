@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ArrowDown, ArrowUpRight, Mail, MapPin, Sparkles } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import { portfolioContent } from '../data/content';
+import { handleResumeDownload } from '../utils/downloadResume';
 
 export function Hero() {
   const { personal } = portfolioContent;
@@ -55,7 +56,13 @@ export function Hero() {
 
               <a
                 href={personal.resumePath}
+                target="_blank"
+                rel="noopener noreferrer"
                 download="Aman_Prajapati_Resume.pdf"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleResumeDownload(personal.resumePath);
+                }}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-slate-300 hover:border-slate-400 dark:border-slate-700 dark:hover:border-slate-600 bg-white hover:bg-slate-50 dark:bg-slate-900/60 dark:hover:bg-slate-800/80 text-slate-900 dark:text-slate-200 font-semibold text-sm shadow-xs hover:shadow transition-all group"
               >
                 <span>Download resume</span>
