@@ -14,7 +14,7 @@ export function Header({ theme, toggleTheme }: HeaderProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 15);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -26,27 +26,27 @@ export function Header({ theme, toggleTheme }: HeaderProps) {
     <header
       className={`sticky top-0 z-50 transition-all duration-200 ${
         scrolled
-          ? 'bg-white/90 dark:bg-[#0B0F17]/90 backdrop-blur-md shadow-sm border-b border-slate-200/80 dark:border-slate-800/80'
-          : 'bg-transparent border-b border-transparent'
+          ? 'bg-white/95 dark:bg-[#0B0F17]/95 backdrop-blur-md shadow-xs border-b border-slate-200/90 dark:border-slate-800/90'
+          : 'bg-white/60 dark:bg-[#0B0F17]/60 backdrop-blur-xs border-b border-slate-200/40 dark:border-slate-800/40'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Wordmark */}
         <a
           href="#"
-          className="group flex items-center gap-2 text-base sm:text-lg font-bold tracking-tight text-slate-900 dark:text-white font-heading"
+          className="group flex items-center gap-2.5 text-base sm:text-lg font-bold tracking-tight text-slate-950 dark:text-white font-heading"
         >
           <span className="w-2.5 h-2.5 rounded-full bg-blue-600 dark:bg-sky-400 group-hover:scale-125 transition-transform" />
           <span>{portfolioContent.personal.name}</span>
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8" aria-label="Main Navigation">
+        <nav className="hidden md:flex items-center gap-7" aria-label="Main Navigation">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-sky-400 transition-colors"
+              className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-sky-400 transition-colors"
             >
               {link.label}
             </a>
@@ -56,23 +56,23 @@ export function Header({ theme, toggleTheme }: HeaderProps) {
           <a
             href={portfolioContent.personal.resumePath}
             download="Aman_Prajapati_Resume.pdf"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-md border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-blue-600 dark:hover:border-sky-400 hover:text-blue-600 dark:hover:text-sky-400 transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-300 hover:border-blue-500 dark:border-slate-700 dark:hover:border-sky-400 bg-white hover:bg-slate-50 dark:bg-slate-900/60 text-slate-800 hover:text-blue-600 dark:text-slate-200 dark:hover:text-sky-400 shadow-2xs transition-all"
           >
             <span>Resume</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
 
-          {/* Theme Toggle */}
+          {/* Theme Toggle Button */}
           <button
             type="button"
             onClick={toggleTheme}
-            className="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-sky-400 hover:border-slate-300 dark:hover:border-slate-700 shadow-2xs transition-all"
             aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
           >
             {theme === 'dark' ? (
-              <Sun className="w-5 h-5 text-amber-400" />
+              <Sun className="w-4 h-4 text-amber-400" />
             ) : (
-              <Moon className="w-5 h-5 text-slate-700" />
+              <Moon className="w-4 h-4 text-slate-700" />
             )}
           </button>
         </nav>
@@ -82,13 +82,13 @@ export function Header({ theme, toggleTheme }: HeaderProps) {
           <button
             type="button"
             onClick={toggleTheme}
-            className="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 shadow-2xs transition-colors"
             aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
           >
             {theme === 'dark' ? (
-              <Sun className="w-5 h-5 text-amber-400" />
+              <Sun className="w-4 h-4 text-amber-400" />
             ) : (
-              <Moon className="w-5 h-5 text-slate-700" />
+              <Moon className="w-4 h-4 text-slate-700" />
             )}
           </button>
 
@@ -113,7 +113,7 @@ export function Header({ theme, toggleTheme }: HeaderProps) {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-sky-400 transition-colors"
+                className="px-3 py-2 rounded-md text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-sky-400 transition-colors"
               >
                 {link.label}
               </a>
@@ -123,7 +123,7 @@ export function Header({ theme, toggleTheme }: HeaderProps) {
                 href={portfolioContent.personal.resumePath}
                 download="Aman_Prajapati_Resume.pdf"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-blue-600 dark:bg-sky-400 text-white dark:text-slate-950 font-semibold text-sm hover:opacity-95 transition-opacity"
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-blue-600 dark:bg-sky-400 text-white dark:text-slate-950 font-semibold text-sm shadow-md transition-opacity"
               >
                 <span>Download Resume</span>
                 <ArrowUpRight className="w-4 h-4" />
